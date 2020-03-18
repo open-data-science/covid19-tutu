@@ -85,7 +85,6 @@ class City:
     def send_people(self, n):
         inf_t = self._sample_infected(n)
         rec_t = self._sample_recovered(n)
-        # TODO: this function is stateless (fix it). Function must not modify itself
         self.infected -= inf_t
         self.recovered -= rec_t
         self.population -= n
