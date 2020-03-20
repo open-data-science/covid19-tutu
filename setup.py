@@ -18,8 +18,8 @@ print(install_reqs)
 
 setuptools.setup(
     name="covid19",
-    version="0.1.0",
-    author="Dmitry Sergeyev, Sviatoslav Kovalyov, Anton Repushko, Egor Urvanov",
+    version="0.2.0",
+    author="Dmitry Sergeyev, Sviatoslav Kovalyov, Anton Repushko, Egor Urvanov, AI-max",
     author_email="sergeyev.d.a@yandex.ru, iggisv9t@gmail.com, repushko.a@gmail.com, hedgehogues@bk.ru",
     description="This is short readme",
     long_description=long_description,

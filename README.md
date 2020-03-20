@@ -33,3 +33,7 @@
 `full_graph.csv` - данные с маршрутами с заполненными полями. Удобно для визуализации.
 
 `age65.csv` - группа риска 65+ с разбиением по регионам.
+
+`CSSEGISandData` - исторические данные по заболеваемости от института Джона Хопкинса (https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series). Данные обновляются ежедневно
+
+`population.csv` - народонаселение по городам (https://datahub.io/JohnSnowLabs/population-figures-by-country)

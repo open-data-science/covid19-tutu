@@ -1,5 +1,7 @@
 from scipy.integrate import odeint
 
+from covid19.core import transform
+
 
 class SIR:
     def __init__(self, population, infected, recovered, beta, gamma):
@@ -89,3 +91,31 @@ class City:
         self.recovered -= rec_t
         self.population -= n
         return inf_t, rec_t
+
+
+def sir_modeling(df, country, days, start_day, beta, gamma):
+    """
+    This function implements modeling of SIR for some days
+
+    :param df: data of history modeling
+    :param country:
+    :param days: days for predict
+    :param start_day: day of starting epedemic
+    :param beta: contacts per day
+    :param gamma: recovered per day
+
+    :return
+    S: s(t) = S(t)/N,	the susceptible fraction of the population
+    I: i(t) = I(t)/N,	the infected fraction of the population
+    R: r(t) = R(t)/N,	the recovered fraction of the population
+    """
+
+    df_instance = transform.get_history(df, country=country)
+
+    n = df_instance['Population'].iloc[start_day]
+    i0 = df_instance['Confirmed'].iloc[start_day]
+    r0 = df_instance['Recovered'].iloc[start_day]
+
+    sir = SIR(population=n, infected=i0, recovered=r0, beta=beta, gamma=gamma)
+    S, I, R = sir.run(days=days)
+    return S, I, R
