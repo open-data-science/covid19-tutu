@@ -21,7 +21,18 @@
 - [ ] Вычислить коэффициент заразности
 
 
+# notebooks
+
+We take some notebooks from this [repo](https://github.com/DmitrySerg/COVID-19):
+
+- sir_modeling_no_graph.ipynb [source notebook](https://github.com/DmitrySerg/COVID-19/blob/6a7a321ccf23723c890eba8d0ad55b9382d29a5e/models/SIR_estimation.ipynb)
+- transport_epidemic_simulation.ipynb [source notebook](https://github.com/DmitrySerg/COVID-19/blob/6a7a321ccf23723c890eba8d0ad55b9382d29a5e/models/COVID-19.ipynb)
+
+We refactor them and restructuring. Also, we create core library and draw library for beautifully our code. Now, we add 
+new data from [here](https://github.com/CSSEGISandData) (see bottom).
+
 # Как оно работает сейчас
+
 На каждую итерацию у нас есть два цикла: в первом мы обновляем считаем динамику в городах, в следующем перемещаем между городами людей.  
   
 В городе сейчас считается SIR модель. Можно учитывать намного больше разных деталей, вроде возрастных групп, сообществ, случайных факторов, но нужно помнить, что это потребует уточнения и по транспорту (например если добавим возрастные группы в городе, надо будет добавить их и по перемещениям), во-вторых может оказаться, что SIR даст тот же результат, если ей чуть параметры подвинуть.  
@@ -32,6 +43,7 @@
 Перебрать параметры и посмотреть что на что влияет, а что вовсе не важно. Точные числа мы скорее всего не предскажем, или не сможем проверить, а динамику и зависимости знать важно.
 
 # Описание data
+
 `raw_data.csv` - как к нам данные пришли от туту.
 
 `cities.csv` - заполненные данные по городам из датасета. Везде есть координаты и население.
