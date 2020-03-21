@@ -39,7 +39,7 @@ def __extractor(soup):
     tags = soup.find_all('table')
     n = len(tags)
 
-    columns = ['Province\State', 'Confirmed', 'Deaths', 'Recovered', 'Sick', 'Date']
+    columns = ['Provinces/State', 'Confirmed', 'Deaths', 'Recovered', 'Sick', 'Date']
     table = [[]]
     for i, content in enumerate(tags):
         if __filter_cond(i, n):
@@ -59,6 +59,15 @@ def __extractor(soup):
     return df
 
 
+def __transform_date(df):
+    df_ = df.pivot_table(columns=['Provinces/State'], index=['Date']).T.fillna(0)
+    df_ = df_.reset_index()
+    columns = df_.columns.tolist()
+    columns[0] = 'Type'
+    df_.columns = columns
+    return df_
+
+
 def download_russia_desease(path, cache=True):
     if os.path.exists(path) and cache:
         df = pd.read_csv(path)
@@ -67,5 +76,6 @@ def download_russia_desease(path, cache=True):
     resp = requests.get(url)
     soup = BeautifulSoup(resp._content.decode('utf-8'), 'html.parser')
     df = __extractor(soup)
+    df = __transform_date(df)
     df.to_csv(path, index=False)
     return df

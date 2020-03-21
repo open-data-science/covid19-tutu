@@ -56,5 +56,6 @@ def get_history(df, country=None, province=None):
 def get_countries(df):
     return pd.DataFrame(df['Country/Region'].unique(), columns=['Country/Region'])
 
+
 def get_provinces(df):
     return df.dropna()[['Province/State', 'Country/Region']]

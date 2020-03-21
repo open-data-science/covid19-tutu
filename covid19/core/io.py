@@ -85,7 +85,6 @@ def read_population(path):
 def read_cities(path, cache_provinces_path, cache_provinces=True, progress_bar=True):
     df_cities = pd.read_csv(path)
     df_cities.columns = ['Lat', 'Long', 'City', 'osm_accuracy', 'City population']
-    df_cities['Country/Region'] = 'Russia'
     df_cities = df_cities.drop(['osm_accuracy'], axis=1)
     cities = df_cities['City'].values.tolist()
     cache = cache_provinces
