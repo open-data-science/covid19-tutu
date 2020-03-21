@@ -3,3 +3,5 @@ scipy==1.4.1
 tqdm==4.43.0
 pandas==1.0.3
 numpy==1.18.1
+bs4==4.8.2
+requests==2.23.0
