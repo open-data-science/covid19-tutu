@@ -1,4 +1,4 @@
-Province,Confirmed,Deaths,Recovered,Date,Country\Region
+Province\State,Confirmed,Deaths,Recovered,Date,Country\Region
 Москва,137,1,8,21/03,Russia
 Московская область,35,0,1,21/03,Russia
 Санкт-Петербург,16,0,2,21/03,Russia

@@ -41,7 +41,7 @@ def __extractor(soup):
     tags = soup.find_all('table')
     n = len(tags)
 
-    columns = ['Province', 'Confirmed', 'Deaths', 'Recovered', 'Sick', 'Date']
+    columns = ['Province\State', 'Confirmed', 'Deaths', 'Recovered', 'Sick', 'Date']
     table = [[]]
     for i, content in enumerate(tags):
         if __filter_cond(i, n):
