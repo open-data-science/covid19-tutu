@@ -40,20 +40,23 @@ new data from [here](https://github.com/CSSEGISandData) (see bottom).
 Между городами перемещение реализовано самым наивным способом. Здесь легко добавить реалистичности не трогая модель города. Однако тоже может оказаться, что тот же результат получится линейным преобразованием от наивного способа, то есть подкруткой скорости транспорта, например.
 
 # Первым делом
+
 Перебрать параметры и посмотреть что на что влияет, а что вовсе не важно. Точные числа мы скорее всего не предскажем, или не сможем проверить, а динамику и зависимости знать важно.
 
 # Описание data
 
-`raw_data.csv` - как к нам данные пришли от туту.
+`raw_data.csv` - dates from tutu.ru: flights, trains, buses by april 2019 year. 
 
-`cities.csv` - заполненные данные по городам из датасета. Везде есть координаты и население.
+`cities.csv` - coordinates and population 
 
-`full_graph.csv` - данные с маршрутами с заполненными полями. Удобно для визуализации.
+`full_graph.csv` - routes (generated data by `notebook/transport_epidemic_simulation.ipynb`)
 
-`age65.csv` - группа риска 65+ с разбиением по регионам.
+`age65.csv` - groups risk 65+ by regions
 
-`cities_infection.csv` - добавлены столбцы с заболевшими и выздоровевшими в файл cities с датами: 18.03; 19.03; 20.03;
+`cities_infection.csv` - file cities with confirmed and recovered people in Russia by 18.03; 19.03; 20.03 dates.
 
-`CSSEGISandData` - исторические данные по заболеваемости от института Джона Хопкинса (https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series). Данные обновляются ежедневно
+`CSSEGISandData` - historical data by pandemic [source](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series). Данные обновляются ежедневно
 
-`population.csv` - народонаселение по городам (https://datahub.io/JohnSnowLabs/population-figures-by-country)
+`population.csv` - population by countries [source](https://datahub.io/JohnSnowLabs/population-figures-by-country)
+
+`russia_regions_desease.csv` - Russia disease by province [source-1](https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_COVID-19_%D0%B2_%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D0%B8#cite_note-sptbl5b-60), [source-2](https://rospotrebnadzor.ru/search/index.php?tags=&q=%E2%FB%FF%E2%EB%E5%ED%EE&where=&how=d&from=&to=) 
