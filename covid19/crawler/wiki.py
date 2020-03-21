@@ -32,8 +32,6 @@ def __build_dataframe(table, columns):
     sick = df['Confirmed'] - df['Deaths'] - df['Recovered']
     assert df[sick != df['Sick']].shape[0] == 0, 'Invalid wikipedia data'
     df = df.drop('Sick', axis=1)
-
-    df['Country\Region'] = 'Russia'
     return df
 
 
