@@ -60,3 +60,5 @@ new data from [here](https://github.com/CSSEGISandData) (see bottom).
 `population.csv` - population by countries [source](https://datahub.io/JohnSnowLabs/population-figures-by-country)
 
 `russia_regions_desease.csv` - Russia disease by province [source-1](https://ru.wikipedia.org/wiki/%D0%A0%D0%B0%D1%81%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_COVID-19_%D0%B2_%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D0%B8#cite_note-sptbl5b-60), [source-2](https://rospotrebnadzor.ru/search/index.php?tags=&q=%E2%FB%FF%E2%EB%E5%ED%EE&where=&how=d&from=&to=) 
+
+`provinces.csv` - provinces for each city from `cities.csv`

@@ -1,5 +1,7 @@
 import pandas as pd
 
+from covid19.crawler import sputnik
+
 
 def add_meta_fields(df, t):
     df_ = df.copy(deep=True)
@@ -78,3 +80,17 @@ def read_population(path):
     population.columns = ['Country/Region', 'Country population']
     population['Country/Region'] = population['Country/Region'].replace(mapping)
     return population
+
+
+def read_cities(path, cache_provinces_path, cache_provinces=True, progress_bar=True):
+    df_cities = pd.read_csv(path)
+    df_cities.columns = ['Lat', 'Long', 'City', 'osm_accuracy', 'City population']
+    df_cities['Country/Region'] = 'Russia'
+    df_cities = df_cities.drop(['osm_accuracy'], axis=1)
+    cities = df_cities['City'].values.tolist()
+    cache = cache_provinces
+    cache_path = cache_provinces_path
+    pb = progress_bar
+    provinces = sputnik.download_provinces(path=cache_path, cities=cities, progress_bar=pb, cache=cache)
+    df_cities['Provinces/State'] = provinces['Provinces/State']
+    return df_cities
