@@ -52,7 +52,7 @@ new data from [here](https://github.com/CSSEGISandData) (see bottom).
 
 `age65.csv` - группа риска 65+ с разбиением по регионам.
 
-`cities_infection.csv` - добавлены столбцы с заболевшими/выздоровевшими в файл cities с датами: 16.03 по 21.03;
+`cities_infection.csv` - добавлены столбцы с заболевшими/выздоровевшими в файл cities с датами: 16.03 - 22.03
 
 `CSSEGISandData` - исторические данные по заболеваемости от института Джона Хопкинса (https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series). Данные обновляются ежедневно
 
