@@ -133,32 +133,18 @@ def fit():
             '''
             flights.append(item)
 
-            size = str(.3 * row[10] / 11514330.0)
-
-            destination = '''
-            {
-                lng: ''' + str(row[6]) + ''',
-                lat: ''' + str(row[5]) + ''',
-                size: ''' + size + ''',
-                color: 'white',
-                radius: .3,
-                label: ' ''' + str(row[1]) + ''' '
-            }
-            '''
-            destinations.append(destination)
-
-        return ','.join(flights), ','.join(destinations)
+        return ','.join(flights)
 
 
     # All flights
 
-    allFlights, allDestinations = fligtArcs(df)
+    allFlights = fligtArcs(df)
 
     pf = df[df['class'] > 0]
-    halFlights = fligtArcs(pf)[0]
+    halFlights = fligtArcs(pf)
 
     rf = df[df['class'] == 2]
-    topFlights = fligtArcs(rf)[0]
+    topFlights = fligtArcs(rf)
 
 
     file = open('./templates/DUMMY.html')
@@ -168,7 +154,6 @@ def fit():
     XXX = contents.replace('AAAAA', allFlights)
     XXX = XXX.replace('BBBBB', halFlights)
     XXX = XXX.replace('CCCCC', topFlights)
-    XXX = XXX.replace('EEEEE', allDestinations)
     XXX = XXX.replace('FFFFF', airportLocations)
     XXX = XXX.replace('GGGGG', airportAndTrainLocations)
     XXX = XXX.replace('HHHHH', transportLocations)
