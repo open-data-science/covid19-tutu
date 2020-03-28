@@ -1,0 +1,201 @@
+<head>
+  <meta charset='UTF-8'>
+  <style> 
+    body { 
+      margin: 0; 
+      } 
+    #f {
+      position: fixed;
+      bottom: 10;
+      right: 20;
+      background-color: transparent; 
+      color: white;
+      font-size: 26pt;
+      font-family: Arial, Helvetica, sans-serif; 
+      }
+
+    #m {
+      position: fixed;
+        top: 10;
+        left: 20;
+        background-color: transparent; 
+        color: white;
+        font-size: 12pt;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 350px;
+      }
+  </style>
+  <script src='//cdn.jsdelivr.net/npm/globe.gl'></script>
+</head>
+
+<body>
+  <div id='globeViz'></div>
+
+  <div id=m>
+    <p>Tutu.ru предоставили проекту Machine Learning for Social Good
+      сообщества Open Data Science данные о пассажироперевозках. И вот что получилось.</p>
+    
+    <p id=first style='visibility: hidden;'>1. Не все маршруты одинаково популярны. Пять городов создают половину перелётов. 
+      <span id=second style='visibility: hidden;'> 80% пассажиров выбирают 26 направлений из полутора тысяч.</span></p>
+    
+    <p id=third style='visibility: hidden;'>2. Железная дорога расширяет географию путешествий.</p>
+    
+    <p id=fourth style='visibility: hidden;'>3. Автоперевозчики помогут добраться ещё дальше. Любой транспорт - фактор риска. Вопрос, чья работа опасней - стюардессы, бортпроводника, или водителя маршрутки - всё ещё открыт.</p>
+    
+    <p id=fifth style='visibility: hidden; border-color: white; border-style: dashed; padding: 20px;'><b>4. На этих данных мы построили базовую модель распространения эпидемии (подробнее в 
+    
+    <a href=https://habr.com/ru/company/ods/blog/493200/>блоге ODS</a> на Хабре).</b></p>
+    
+    <p id=sixth style='visibility: hidden;'>5. Сейчас - расширяем функционал и будем рады новым данным, 
+      а также - распространению информации об этой инициативе.</p>
+    
+    <p id=seventh style='visibility: hidden;'>Спасибо за внимание и крепкого Вам здоровья!<br><br>
+      - Вадим Сафронов, Лиссабон, 25 марта 2020
+    </p>
+  </div>
+
+  <div id="f">Перелёты
+    <ul>
+      <li>
+        <a style ='color: white;' href='#' b='javascript:show_all()'> 100% </a>
+      </li>
+      <li id=eighty style='visibility: hidden;'>
+        <a href='#' b='javascript:show_80()'>80%</a>
+      </li>
+      <li id=fifty style='visibility: hidden;'>
+        <a style ='color: red;' href='#' b='javascript:show_50()'>50%</a>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+
+    const MAP_CENTER = { lat: 55.355125, lng: 86.087234, altitude: 1.7 };
+    const MAP_CENTER_M = { lat: 55.557413, lng: 36.760755, altitude: 0.5 };
+    const MAP_CENTER_N = { lat: 0, lng: 90, altitude: 3.5 };
+    const MAP_CENTER_S = { lat: 50.185691, lng: 57.189052, altitude: 1.2 };
+
+    const NEWarcsData100 = [
+      AAAAA
+    ];
+    const NEWarcsData80 = [
+      BBBBB
+    ];
+    const XXXNEWarcsData50 = [
+      CCCCC
+    ];
+    const pointsDataAir = [
+      FFFFF
+    ];
+    const pointsDataTrain = [
+      GGGGG
+    ];
+    const pointsDataBus = [
+      HHHHH
+    ];
+
+    const world = Globe()
+    world
+      .showGraticules([true])
+      .globeImageUrl('//cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg')
+
+      .arcColor('color')
+      .arcDashLength(.03)
+      .arcDashGap(0.15)
+      .arcDashAnimateTime(5500)
+
+      .pointsData(pointsDataAir)
+      .pointColor('color')
+      .pointRadius('radius')
+      .pointLabel('label')
+      .pointAltitude(.007)
+
+    (document.getElementById('globeViz'));
+
+    function roll_the_show() {
+      // Intro
+      setTimeout(function() {
+        world.pointOfView(MAP_CENTER, 4000);
+      }, 1000);
+
+      setTimeout(function() {
+        world.pointAltitude('size');
+      }, 5000);
+
+      // Scene 1
+
+      setTimeout(function() {
+        document.getElementById('first').style.visibility = 'visible'
+      }, 7000);
+
+      setTimeout(function() {
+        document.getElementById('first').style.visibility = 'visible'
+        world.pointOfView(MAP_CENTER_M, 4000);
+      }, 7000);
+
+      setTimeout(function() {
+        WWW = [...XXXNEWarcsData50]
+        world.arcsData(WWW)
+        document.getElementById('fifty').style.visibility = 'visible'
+      }, 11000);
+
+      // Scene 2
+
+      setTimeout(function() {
+        document.getElementById('second').style.visibility = 'visible';
+        world.pointOfView(MAP_CENTER_S, 2000);
+      }, 15000);
+      
+      setTimeout(function() {
+        world.arcsData(NEWarcsData80)
+        document.getElementById('eighty').style.visibility = 'visible'
+      }, 17000);
+
+      // Scene 3
+
+      setTimeout(function() {
+        document.getElementById('f').innerHTML = '<ul><li>Самолёты</li> <li style="visibility: hidden;">&nbsp;</li>  <li style="visibility: hidden;">Поезда</li> </ul>'
+      }, 20000);
+
+      setTimeout(function() {
+        document.getElementById('third').style.visibility = 'visible';
+        world.pointOfView(MAP_CENTER, 2000);
+        world.arcsData(WWW);
+        world.pointsTransitionDuration(0);
+        world.pointsData(pointsDataTrain);
+        document.getElementById('f').innerHTML = '<ul><li>Самолёты</li> <li style="visibility: hidden;">&nbsp;</li>  <li style="color: red;">Поезда</li> </ul>'
+      }, 21000);
+
+      // Frame 4
+
+      setTimeout(function() {
+        world.pointsData(pointsDataBus);
+        document.getElementById('fourth').style.visibility = 'visible';
+        document.getElementById('f').innerHTML = '<ul><li>Самолёты</li> <li style="color: blue;">Автобусы</li>  <li style="color: red;">Поезда</li> </ul>'
+      }, 25000);
+
+      // Frame 5
+
+      setTimeout(function() {
+        document.getElementById('fifth').style.visibility = 'visible';
+        world.arcsData(NEWarcsData100);
+        world.pointOfView(MAP_CENTER_N, 7000);
+      }, 27000);
+
+      // Frame 6
+
+      setTimeout(function() {
+        document.getElementById('sixth').style.visibility = 'visible'
+      }, 29000);
+
+      // Frame 7
+
+      setTimeout(function() {
+        document.getElementById('seventh').style.visibility = 'visible'
+      }, 30000);
+    }
+
+    roll_the_show()
+
+  </script>
+</body>
