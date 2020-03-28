@@ -36,3 +36,11 @@
 
 `age65.csv` - группа риска 65+ с разбиением по регионам.
 
+`cities_infection.csv` - добавлены столбцы с заболевшими/выздоровевшими в файл cities с датами: 16.03 - 22.03
+
+`CSSEGISandData` - исторические данные по заболеваемости от института Джона Хопкинса (https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data/csse_covid_19_time_series). Данные обновляются ежедневно
+
+`population.csv` - народонаселение по городам (https://datahub.io/JohnSnowLabs/population-figures-by-country)
+
+`cities_new.csv` - добавлены данные по плотности населения (http://worldgeo.ru/russia/lists/?id=26), количеству аппаратов ИВЛ и ЭКМО (https://meduza.io/feature/2020/03/20/v-italii-iz-za-koronavirusa-katastroficheski-ne-hvataet-apparatov-ivl-v-rossii-ih-gorazdo-bolshe-no-eto-ne-znachit-chto-my-luchshe-gotovy-k-epidemii), а также по уровню развития инфраструктуры и общественной жизни (чистота, транспорт, спорт, магазины: https://www.domofond.ru/statya/polnyy_reyting_250_gorodov_rossii_po_kachestvu_zhizni/6764)
+
