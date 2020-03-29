@@ -57,8 +57,6 @@ def fit():
 
     zf = pd.DataFrame(xf.values, columns=['source_lat', 'source_lng', 'source_population', 'source', 'transport_class'])
 
-    
-
     def make_points(data):
         destinations = []
         palette = {0: 'blue', 1: 'red', 2: 'white'}
@@ -92,8 +90,6 @@ def fit():
     # cleanup for compatibility with the following part
     df = df.drop(columns=['transport_class'])
 
-
-
     df = df[df['transport']=='avia']
     df = df.sort_values(by=['pass_day'])
     df['pass_day_cumsum'] = df['pass_day'].cumsum()
@@ -109,8 +105,6 @@ def fit():
             return 2
 
     df['class'] = df['pass_day_cumsum'].apply(ranker)
-
-
 
     def fligtArcs(data):
         flights = []
@@ -135,9 +129,6 @@ def fit():
 
         return ','.join(flights)
 
-
-    # All flights
-
     allFlights = fligtArcs(df)
 
     pf = df[df['class'] > 0]
@@ -145,7 +136,6 @@ def fit():
 
     rf = df[df['class'] == 2]
     topFlights = fligtArcs(rf)
-
 
     file = open('./templates/DUMMY.html')
     contents = file.read()
@@ -164,6 +154,5 @@ def fit():
 
     return render_template('OUTPUT.html')
 
- 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
