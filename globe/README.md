@@ -7,3 +7,7 @@
 
 1. `python .\main.py` - запускает сервер по адресу `http://localhost:8080/`
 2. Вызов `http://localhost:8080/fit` - перезаписывает выходной файл `.\templates\OUTPUT.html`
+
+# Альтернатива
+
+Покрутить глобус <a href=https://safronov.kiev.ua/ods/tutu.html>здесь</a>
