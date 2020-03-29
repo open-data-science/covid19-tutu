@@ -42,7 +42,7 @@
     
     <p id=fourth style='visibility: hidden;'>3. Автоперевозчики помогут добраться ещё дальше. Любой транспорт - фактор риска. Вопрос, чья работа опасней - стюардессы, бортпроводника, или водителя маршрутки - всё ещё открыт.</p>
     
-    <p id=fifth style='visibility: hidden; border-color: white; border-style: dashed; padding: 20px;'><b>4. На этих данных мы построили базовую модель распространения эпидемии (подробнее в 
+    <p id=fifth style='visibility: hidden; border-color: white; border-style: dashed; padding: 20px;'><b>4. На этих данных мы построили базовую <a href=https://github.com/ods-ai-ml4sg/covid19-tutu>модель</a> распространения эпидемии (подробнее в 
     
     <a href=https://habr.com/ru/company/ods/blog/493200/>блоге ODS</a> на Хабре).</b></p>
     
@@ -57,13 +57,13 @@
   <div id="f">Перелёты
     <ul>
       <li>
-        <a style ='color: white;' href='#' b='javascript:show_all()'> 100% </a>
+        100%
       </li>
       <li id=eighty style='visibility: hidden;'>
-        <a href='#' b='javascript:show_80()'>80%</a>
+        <span style ='color: blue;'>80%</span>
       </li>
       <li id=fifty style='visibility: hidden;'>
-        <a style ='color: red;' href='#' b='javascript:show_50()'>50%</a>
+        <span style ='color: red;'>50%</span>
       </li>
     </ul>
   </div>
@@ -75,7 +75,7 @@
     const MAP_CENTER_N = { lat: 0, lng: 90, altitude: 3.5 };
     const MAP_CENTER_S = { lat: 50.185691, lng: 57.189052, altitude: 1.2 };
 
-    const NEWarcsData100 = [
+    const arcsData100 = [
       
             {
             startLat: 57.153534,
@@ -26637,7 +26637,7 @@
             }
             
     ];
-    const NEWarcsData80 = [
+    const arcsData80 = [
       
             {
             startLat: 53.198627,
@@ -27180,7 +27180,7 @@
             }
             
     ];
-    const XXXNEWarcsData50 = [
+    const arcsData50 = [
       
             {
             startLat: 55.4792046,
@@ -41417,18 +41417,17 @@
       // Scene 1
 
       setTimeout(function() {
-        document.getElementById('first').style.visibility = 'visible'
+        document.getElementById('first').style.visibility = 'visible';
       }, 7000);
 
       setTimeout(function() {
-        document.getElementById('first').style.visibility = 'visible'
+        document.getElementById('first').style.visibility = 'visible';
         world.pointOfView(MAP_CENTER_M, 4000);
       }, 7000);
 
       setTimeout(function() {
-        WWW = [...XXXNEWarcsData50]
-        world.arcsData(WWW)
-        document.getElementById('fifty').style.visibility = 'visible'
+        world.arcsData(arcsData50);
+        document.getElementById('fifty').style.visibility = 'visible';
       }, 11000);
 
       // Scene 2
@@ -41439,8 +41438,8 @@
       }, 15000);
       
       setTimeout(function() {
-        world.arcsData(NEWarcsData80)
-        document.getElementById('eighty').style.visibility = 'visible'
+        world.arcsData(arcsData80);
+        document.getElementById('eighty').style.visibility = 'visible';
       }, 17000);
 
       // Scene 3
@@ -41452,13 +41451,13 @@
       setTimeout(function() {
         document.getElementById('third').style.visibility = 'visible';
         world.pointOfView(MAP_CENTER, 2000);
-        world.arcsData(WWW);
+        world.arcsData(arcsData50);
         world.pointsTransitionDuration(0);
         world.pointsData(pointsDataTrain);
         document.getElementById('f').innerHTML = '<ul><li>Самолёты</li> <li style="visibility: hidden;">&nbsp;</li>  <li style="color: red;">Поезда</li> </ul>'
       }, 21000);
 
-      // Frame 4
+      // Scene 4
 
       setTimeout(function() {
         world.pointsData(pointsDataBus);
@@ -41466,28 +41465,28 @@
         document.getElementById('f').innerHTML = '<ul><li>Самолёты</li> <li style="color: blue;">Автобусы</li>  <li style="color: red;">Поезда</li> </ul>'
       }, 25000);
 
-      // Frame 5
+      // Scene 5
 
       setTimeout(function() {
         document.getElementById('fifth').style.visibility = 'visible';
-        world.arcsData(NEWarcsData100);
+        world.arcsData(arcsData100);
         world.pointOfView(MAP_CENTER_N, 7000);
       }, 27000);
 
-      // Frame 6
+      // Scene 6
 
       setTimeout(function() {
-        document.getElementById('sixth').style.visibility = 'visible'
+        document.getElementById('sixth').style.visibility = 'visible';
       }, 29000);
 
-      // Frame 7
+      // Scene 7
 
       setTimeout(function() {
-        document.getElementById('seventh').style.visibility = 'visible'
+        document.getElementById('seventh').style.visibility = 'visible';
       }, 30000);
     }
 
-    roll_the_show()
+    roll_the_show();
 
   </script>
 </body>
