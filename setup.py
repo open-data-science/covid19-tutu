@@ -13,7 +13,7 @@ def parse_requirements(filename):
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-install_reqs = parse_requirements('./requirements')
+install_reqs = parse_requirements('./requirements.txt')
 print(install_reqs)
 
 setuptools.setup(
